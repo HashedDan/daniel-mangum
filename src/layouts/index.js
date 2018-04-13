@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../components/header'
+import { UserContext } from '../context/user-context'
 import './index.css'
 
 const Layout = ({ children, data }) => (
@@ -23,7 +24,9 @@ const Layout = ({ children, data }) => (
         paddingTop: 0,
       }}
     >
-      {children()}
+      <UserContext.Provider value="undefined">
+        {children()}
+      </UserContext.Provider>
     </div>
   </div>
 )
